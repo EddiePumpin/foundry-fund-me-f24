@@ -1,66 +1,10 @@
-## Foundry
+// msg.sender is person calling the fundMe test which the owner is the FundMeTest contract because it deployed the FundMe contract{Us calling the FundMeTest which now deploys the FundMe contract} us -> FundMeTest -> FundMe
+// When you are running a test and you don't spacify the chain. Anvil will automatically spin up a node and delete it after the test
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+// What can we do to work with addresses outside our systems?
+// 1. Unit - Tesing a specific part of our code
+// 2. Integration - Testing how our code works with other parts of our code
+// 3. Forked - Tesing our code on a simulated real environment. This can be considered as a Umit/Integration test.
+// 4. Staging - Testing our code in a real environment that is not prod
 
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+// It is good to have some test before you start refactoring
