@@ -97,7 +97,7 @@ contract FundMeTest is Test {
         uint160 startingFunderIndex = 1; // It is ideal to start with 1 because 0 address revert
         for (uint256 i = startingFunderIndex; i < numberOfFunders; i++) {
             // vm.prank
-            // vm.default
+            // vm.deal
             hoax(address(i), SEND_VALUE); // If vm.prank and vm.deal is combined, then hoax is used. Since we are hoaxing this line, we are pranking it.
             fundMe.fund{value: SEND_VALUE}();
             // Fund the fundMe
@@ -107,7 +107,7 @@ contract FundMeTest is Test {
         uint256 startingFundMeBalance = address(fundMe).balance;
 
         // Act
-        vm.prankPrank(fundMe.getOwner()); // This is the same as the vm.startBroadcast and vm.stopBroadcast. Anything in-between will be sent by the fundMe.getOwner()
+        vm.startPrank(fundMe.getOwner()); // This is the same as the vm.startBroadcast and vm.stopBroadcast. Anything in-between will be sent by the fundMe.getOwner()
         fundMe.withdraw();
         vm.stopPrank();
 
@@ -125,7 +125,7 @@ contract FundMeTest is Test {
             for (uint256 i = startingFunderIndex; i < numberOfFunders; i++) {
                 // vm.prank
                 // vm.default
-             hoax(address(i), SEND_VALUE); // If vm.prank and vm.deal is combined, then hoax is used. Since we are hoaxing this line, we are pranking it.
+             hoax(address(i), SEND_VALUE); // If vm.prank and vm.deal is combined, then hoax is used. Since we are hoaxing this line, we are pranking it. Hoax sets up a prank from an address that has some ether.
                 fundMe.fund{value: SEND_VALUE}();
                 // Fund the fundMe
             }

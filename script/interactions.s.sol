@@ -22,7 +22,7 @@ contract FundFundMe is Scripts {
         console.log("Funded FundMe with %s", SEND_VALUE);
     }
     function run() external {
-        address mostRecentlyDeployed = DevOpsTools.get_most_recent_deployment("FundMe", block.chainis);
+        address mostRecentlyDeployed = DevOpsTools.get_most_recent_deployment("FundMe", block.chainid);
         fundFundMe(mostRecentlyDeployed);
     }
 }
